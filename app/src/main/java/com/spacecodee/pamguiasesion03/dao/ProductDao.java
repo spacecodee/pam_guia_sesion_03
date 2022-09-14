@@ -5,11 +5,15 @@ import com.spacecodee.pamguiasesion03.dto.ProductDto;
 public class ProductDao {
 
     public String calcularOperacion(ProductDto productDto) {
+        productDto.setPrice(this.calcularCostoParZapatillas(productDto));
+        productDto.setSale(this.calcularVenta(productDto));
+        productDto.setDiscount(this.calcularDescuento(productDto));
+        productDto.setNetSale(this.calcularVentaNeta(productDto));
         //message get all
-        return "El costo del par de zapatillas es: " + this.calcularCostoParZapatillas(productDto)
-                + "\nLa venta de la Zapatilla es: " + this.calcularVenta(productDto)
-                + "\nEl descuento es: " + this.calcularDescuento(productDto)
-                + "\nLa venta neta es: " + this.calcularVentaNeta(productDto);
+        return "El costo del par de zapatillas es: " + productDto.getPrice()
+                + "\nLa venta de la Zapatilla es: " + productDto.getSale()
+                + "\nEl descuento es: " + productDto.getDiscount()
+                + "\nLa venta neta es: " + productDto.getNetSale();
     }
 
     private int calcularCostoParZapatillas(ProductDto productDto) {
@@ -26,7 +30,7 @@ public class ProductDao {
                         break;
                 }
                 break;
-            case 2:
+            case 1:
                 switch (productDto.getTall()) {
                     case 0:
                         cost = 140;
@@ -37,7 +41,7 @@ public class ProductDao {
                         break;
                 }
                 break;
-            case 3:
+            case 2:
                 switch (productDto.getTall()) {
                     case 0:
                         cost = 80;
