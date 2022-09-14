@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="brands">
+        <item>Adidas</item>
+        <item>Nike</item>
+        <item>Fila</item>
+    </string-array>
+    <string name="brand">brand</string>
+</resources>
